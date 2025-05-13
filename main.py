@@ -1,6 +1,6 @@
 import os
 
-from dotenv import load_dotenv  # Add this import
+from dotenv import load_dotenv  
 from langchain.agents import AgentType, initialize_agent
 from langchain_openai import OpenAI
 from langchain_openai import ChatOpenAI
@@ -8,7 +8,7 @@ from langchain_openai import ChatOpenAI
 from tools.cli_tool import CommandLineTool
 from tools.web_scrape_tool import WebScrapeTool
 
-# Load your OpenAI API key from environment variables
+# Load OpenAI API key from environment variables
 load_dotenv()
 api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
@@ -16,9 +16,9 @@ if not api_key:
 
 def main():
     llm = ChatOpenAI(
-        base_url="https://llm.dev.aicore.team/api",  # or your Open WebUI endpoint
-        api_key=api_key,  # Required but may be ignored by some backends
-        model="llama3-8b",  # Replace with the model identifier for your hosted LLM
+        base_url="https://llm.dev.aicore.team/api", 
+        api_key=api_key, 
+        model="llama3-8b", 
     )
     # Load the custom tools
     cli_tool = CommandLineTool()
@@ -33,7 +33,7 @@ def main():
         verbose=True,
     )
 
-    # Example interactions
+    # interactions
     print("Agent interacting with the command line:")
     agent.invoke("List all files and directories in the current directory.")
 
