@@ -2,7 +2,7 @@ from typing import List
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Weather")
+mcp = FastMCP("Weather", port=8080)
 
 
 @mcp.tool()
